@@ -33,8 +33,9 @@ import java.io.IOException;
  * @author  Shine Shan University of Brighton
  */
 
-public class Main extends Application {
+public class Main extends Application
 
+    {
     public static void main(String[] args) {
         launch(args); // Launches the JavaFX application and calls the @Override start()
     }
