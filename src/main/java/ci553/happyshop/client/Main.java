@@ -15,6 +15,8 @@ import ci553.happyshop.storageAccess.DatabaseRWFactory;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import java.io.IOException;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 /**
  * The Main JavaFX application class. The Main class is executable directly.
@@ -43,6 +45,7 @@ public class Main extends Application
     //starts the system
     @Override
     public void start(Stage window) throws IOException {
+        startBackgroundMusic();
         startCustomerClient();
         startPickerClient();
         startOrderTracker();
@@ -60,6 +63,31 @@ public class Main extends Application
 
         startEmergencyExit();
     }
+
+        private void startBackgroundMusic()
+        {
+            try
+            {
+                var url = getClass().getResource("/audio/bgm.mp3");
+                if (url == null)
+                {
+                    System.err.println("Background music not found: /audio/bgm.mp3 (check resources path)");
+                    return;
+                }
+
+                Media media = new Media(url.toExternalForm());
+                MediaPlayer backgroundMusicPlayer = new MediaPlayer(media);
+
+                backgroundMusicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+                backgroundMusicPlayer.setVolume(0.1);
+                backgroundMusicPlayer.play();
+            }
+            catch (Exception e)
+            {
+                System.err.println("Failed to start background music.");
+                e.printStackTrace();
+            }
+        }
 
     /** The customer GUI -search prodduct, add to trolley, cancel/submit trolley, view receipt
      *
@@ -158,6 +186,5 @@ public class Main extends Application
         EmergencyExit.getEmergencyExit();
     }
 }
-
 
 
