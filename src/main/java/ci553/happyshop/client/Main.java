@@ -44,7 +44,8 @@ public class Main extends Application
 
     //starts the system
     @Override
-    public void start(Stage window) throws IOException {
+    public void start(Stage window) throws IOException
+    {
         startBackgroundMusic();
         startCustomerClient();
         startPickerClient();
@@ -69,7 +70,7 @@ public class Main extends Application
          * Gets the resource from the specified file path.
          * Prints am error message if the resource cannot be found or the path is wrong as well as tells the user the expected path.
          * starts playing music within specified constraints (volume + cycle count).
-         * Prints an error if it fails. 
+         * Prints an error if it fails.
          */
 
         private void startBackgroundMusic()
