@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * TODO
  * You can either directly modify the CustomerModel class to implement the required tasks,
  * or create a subclass of CustomerModel and override specific methods where appropriate.
  */

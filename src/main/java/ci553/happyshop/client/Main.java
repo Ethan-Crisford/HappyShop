@@ -78,9 +78,9 @@ public class Main extends Application
                 Media media = new Media(url.toExternalForm());
                 MediaPlayer backgroundMusicPlayer = new MediaPlayer(media);
 
-                backgroundMusicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-                backgroundMusicPlayer.setVolume(0.1);
-                backgroundMusicPlayer.play();
+                backgroundMusicPlayer.setCycleCount(MediaPlayer.INDEFINITE); //Loop music indefinitely
+                backgroundMusicPlayer.setVolume(0.1); //Lower volume value
+                backgroundMusicPlayer.play(); // runs play method after setting cycleCount and volume
             }
             catch (Exception e)
             {
