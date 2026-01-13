@@ -38,7 +38,8 @@ import javafx.scene.media.MediaPlayer;
 public class Main extends Application
 
     {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         launch(args); // Launches the JavaFX application and calls the @Override start()
     }
 
@@ -51,16 +52,16 @@ public class Main extends Application
         startPickerClient();
         startOrderTracker();
 
-        startCustomerClient();
-        startPickerClient();
-        startOrderTracker();
+        //startCustomerClient();
+        //startPickerClient();
+        //startOrderTracker();
 
         // Initializes the order map for the OrderHub. This must be called after starting the observer clients
         // (such as OrderTracker and Picker clients) to ensure they are properly registered for receiving updates.
         initializeOrderMap();
 
         startWarehouseClient();
-        startWarehouseClient();
+        //startWarehouseClient();
 
         startEmergencyExit();
     }

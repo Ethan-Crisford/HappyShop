@@ -1,0 +1,10 @@
+Order ID: 15 
+State: Ordered 
+OrderedDateTime: 2026-01-13 16:24:30 
+ProgressingDateTime:  
+CollectedDateTime: 
+Items:
+ 0001    40 inch TV         (17) £4573.00
+--------------------------------------------
+ Total                               £4573.00
+
