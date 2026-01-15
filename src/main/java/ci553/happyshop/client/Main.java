@@ -15,6 +15,8 @@ import ci553.happyshop.storageAccess.DatabaseRWFactory;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import java.io.IOException;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 /**
  * The Main JavaFX application class. The Main class is executable directly.
@@ -36,30 +38,66 @@ import java.io.IOException;
 public class Main extends Application
 
     {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         launch(args); // Launches the JavaFX application and calls the @Override start()
     }
 
     //starts the system
     @Override
-    public void start(Stage window) throws IOException {
+    public void start(Stage window) throws IOException
+    {
+        startBackgroundMusic();
         startCustomerClient();
         startPickerClient();
         startOrderTracker();
 
-        startCustomerClient();
-        startPickerClient();
-        startOrderTracker();
+        //startCustomerClient();
+        //startPickerClient();
+        //startOrderTracker();
 
         // Initializes the order map for the OrderHub. This must be called after starting the observer clients
         // (such as OrderTracker and Picker clients) to ensure they are properly registered for receiving updates.
         initializeOrderMap();
 
         startWarehouseClient();
-        startWarehouseClient();
+        //startWarehouseClient();
 
         startEmergencyExit();
     }
+
+        /**
+         * Background music method.
+         * Gets the resource from the specified file path.
+         * Prints am error message if the resource cannot be found or the path is wrong as well as tells the user the expected path.
+         * starts playing music within specified constraints (volume + cycle count).
+         * Prints an error if it fails.
+         */
+
+        private void startBackgroundMusic()
+        {
+            try
+            {
+                var url = getClass().getResource("/audio/bgm.mp3");
+                if (url == null)
+                {
+                    System.err.println("Background music not found: /audio/bgm.mp3 (check resources path)");
+                    return;
+                }
+
+                Media media = new Media(url.toExternalForm());
+                MediaPlayer backgroundMusicPlayer = new MediaPlayer(media);
+
+                backgroundMusicPlayer.setCycleCount(MediaPlayer.INDEFINITE); //Loop music indefinitely
+                backgroundMusicPlayer.setVolume(0.1); //Lower volume value
+                backgroundMusicPlayer.play(); // runs play method after setting cycleCount and volume
+            }
+            catch (Exception e)
+            {
+                System.err.println("Failed to start background music.");
+                e.printStackTrace();
+            }
+        }
 
     /** The customer GUI -search prodduct, add to trolley, cancel/submit trolley, view receipt
      *
@@ -158,6 +196,5 @@ public class Main extends Application
         EmergencyExit.getEmergencyExit();
     }
 }
-
 
 

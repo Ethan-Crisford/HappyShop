@@ -25,7 +25,8 @@ public class CustomerClient extends Application {
      * and is triggered by the Customer Model when needed.
      */
     @Override
-    public void start(Stage window) {
+    public void start(Stage window)
+    {
         CustomerView cusView = new CustomerView();
         CustomerController cusController = new CustomerController();
         CustomerModel cusModel = new CustomerModel();

@@ -109,7 +109,7 @@ public class RemoveProductNotifier {
     }
 
     // Show remove product message
-    public void showRemovalMsg(String removalMsg) {
+    public void showRemovalMsg(String removalMsg, String s) {
         if (window ==null ||!window.isShowing() ) {
             createWindow(); // create window if not exists
         }
