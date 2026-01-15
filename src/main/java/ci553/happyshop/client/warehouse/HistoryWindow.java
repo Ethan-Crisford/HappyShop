@@ -49,7 +49,7 @@ public class HistoryWindow {
         window.setScene(scene);
         window.setTitle("\uD83C\uDFEC Warehouse Management History"); // for icon 🏬
         window.show();
-        //get the bounds of warehouse window which trigers the history window
+        //get the bounds of warehouse window which triggers the history window
         //so that we can put the history window next to the warehouse window
         WindowBounds bounds = warehouseView.getWindowBounds();
         window.setX(bounds.x + bounds.width - 20);
@@ -58,7 +58,7 @@ public class HistoryWindow {
 
     public  void showManageHistory(ArrayList<String> history){
         if(window ==null ||!window.isShowing() ) {
-            createWindow();  // Only create window if it's not created or unvisible
+            createWindow();  // Only create window if it's not created or invisible
         }
         // Create a single string with each item on a new line
         StringBuilder result = new StringBuilder();

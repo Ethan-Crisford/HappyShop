@@ -148,7 +148,6 @@ public class CustomerModel
         updateView();
     }
 
-
     /**
      * Remove products with insufficient stock from the trolley.
      * Trigger a message window to notify the customer about the insufficient stock.
@@ -274,7 +273,6 @@ public class CustomerModel
 
         return new ArrayList<>(grouped.values());
     }
-
 
     void cancel()
     {
